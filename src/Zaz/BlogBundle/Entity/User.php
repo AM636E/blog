@@ -10,29 +10,4 @@ use FOS\UserBundle\Model\User as BaseUser;
  */
 class User extends BaseUser
 {
-<<<<<<< HEAD
-
-    public function __construct ()
-    {
-        parent::__construct();
-        // your own logic
-    }
-
-    /**
-     * @var integer
-     */
-    protected $id;
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId ()
-    {
-        return $this->id;
-    }
-=======
->>>>>>> post_create
 }
