@@ -9,9 +9,12 @@
 namespace Zaz\BlogBundle\Controller;
 
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
 use FOS\UserBundle\Controller\SecurityController as BaseController;
+use Zaz\BlogBundle\Entity\User;
+
 
 class SecurityController extends BaseController
 {
@@ -19,5 +22,6 @@ class SecurityController extends BaseController
     public function loginAction (Request $request)
     {
         return parent::loginAction($request);
+
     }
 } 
