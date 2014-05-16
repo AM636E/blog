@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Zaz\BlogBundle\Entity\Message" table="message">
+    <id name="mid" type="integer" column="mid">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="receiveruid" type="integer" column="receiverUid" nullable="false"/>
+    <field name="pid" type="integer" column="pid" nullable="false"/>
+  </entity>
+</doctrine-mapping>
