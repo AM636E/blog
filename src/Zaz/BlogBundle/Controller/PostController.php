@@ -10,8 +10,10 @@ namespace Zaz\BlogBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Debug\Exception\ContextErrorException;
 use Symfony\Component\HttpFoundation\Request;
 use Zaz\BlogBundle\Entity\Post;
+use Zaz\BlogBundle\Entity\User;
 
 class PostController extends Controller
 {
@@ -28,22 +30,32 @@ class PostController extends Controller
 
         $form->handleRequest($request);
 
+        $status = "";
         if ( $form->isValid() ) {
-            $user = $this->container->get('security.context')
-                                    ->getToken()
-                                    ->getUser();
-            $post->setCreated(time());
-            $post->setUser($user);
-            $em = $this->getDoctrine()
-                       ->getManager();
+            $status = "Success";
+            try {
+                /** @var $user User */
+                $user = $this->container->get('security.context')
+                                        ->getToken()
+                                        ->getUser();
+                $post->setUser($user);
+                $post->setUid($user->getId());
+                $post->setCreated(time());
+                $em = $this->getDoctrine()
+                           ->getManager();
+                $em->persist($post);
+                $em->flush();
 
-            $em->persist($post);
-            $em->flush();
+            }
+            catch (ContextErrorException $e) {
+                $status = "Failed to create post. <pre>" . print_r($e) . "</pre>";
+            }
         }
 
 
         return $this->render('ZazBlogBundle:Post:create.html.twig', array (
-            'form' => $form->createView()
+            'form'   => $form->createView(),
+            'status' => $status
         ));
 
     }

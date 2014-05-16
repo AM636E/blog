@@ -3,12 +3,19 @@
 namespace Zaz\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
 use Symfony\Component\Security\Core\Role\RoleInterface;
+=======
+>>>>>>> post_create
 
 /**
  * Role
  */
+<<<<<<< HEAD
 class Role implements RoleInterface
+=======
+class Role
+>>>>>>> post_create
 {
     /**
      * @var string
@@ -126,6 +133,7 @@ class Role implements RoleInterface
     {
         return $this->user;
     }
+<<<<<<< HEAD
 
     /**
      * Returns the role.
@@ -141,4 +149,6 @@ class Role implements RoleInterface
     {
         return $this->getName();
     }
+=======
+>>>>>>> post_create
 }

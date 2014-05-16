@@ -3,13 +3,14 @@
 namespace Zaz\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as FOSUser;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  */
-class User extends FOSUser
+class User extends BaseUser
 {
+<<<<<<< HEAD
 
     public function __construct ()
     {
@@ -32,4 +33,6 @@ class User extends FOSUser
     {
         return $this->id;
     }
+=======
+>>>>>>> post_create
 }

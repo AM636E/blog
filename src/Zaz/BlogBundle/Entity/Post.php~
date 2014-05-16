@@ -9,14 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Post
 {
-<<<<<<< HEAD
-=======
     /**
      * @var string
      */
     private $uid;
 
->>>>>>> post_create
     /**
      * @var string
      */
@@ -44,8 +41,6 @@ class Post
 
 
     /**
-<<<<<<< HEAD
-=======
      * Set uid
      *
      * @param string $uid
@@ -69,7 +64,6 @@ class Post
     }
 
     /**
->>>>>>> post_create
      * Set title
      *
      * @param string $title
@@ -143,11 +137,7 @@ class Post
      *
      * @return integer 
      */
-<<<<<<< HEAD
-    public function getPid()
-=======
     public function getId()
->>>>>>> post_create
     {
         return $this->id;
     }
@@ -158,11 +148,7 @@ class Post
      * @param \Zaz\BlogBundle\Entity\User $user
      * @return Post
      */
-<<<<<<< HEAD
-    public function setUser(\Zaz\BlogBundle\Entity\User $user = null)
-=======
     public function setUser(\Zaz\BlogBundle\Entity\User $user)
->>>>>>> post_create
     {
         $this->user = $user;
 
@@ -172,11 +158,7 @@ class Post
     /**
      * Get user
      *
-<<<<<<< HEAD
-     * @return \Zaz\BlogBundle\Entity\User
-=======
      * @return \Zaz\BlogBundle\Entity\User 
->>>>>>> post_create
      */
     public function getUser()
     {
