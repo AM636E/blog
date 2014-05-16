@@ -1,0 +1,4 @@
+zaz_blog:
+    resource: "@ZazBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
