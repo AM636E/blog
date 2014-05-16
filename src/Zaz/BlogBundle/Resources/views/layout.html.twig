@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  {% stylesheets 'bundles/zazblog/bootstrap/css/bootstrap.css' %}
+  <link rel="stylesheet" href="{{ asset_url }}"/>
+  {% endstylesheets %}
+</head>
+<body class="container  ">
+<header class="container">
+  <h4>
+    {% block header_wrapper %}
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {% block header_logined %}
+          Welcome, dear {{ app.user.username }}.
+        {% endblock %}
+      {% else %}
+        {% block header_anonimous %}
+          <a href="{{ path('fos_user_security_login') }}">{{ 'Login here?'|trans({}, 'FOSUserBundle') }}</a>
+        {% endblock %}
+      {% endif %}
+    {% endblock %}
+  </h4>
+</header>
+
+<section class="container content-wrapper">
+  <section class="messages">
+    {% for type, messages in app.session.flashbag.all() %}
+      {% for message in messages %}
+        <div class="flash-{{ type }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </section>
+  <section class="content">
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+  </section>
+  <section class="body">
+    {% block body %}
+    {% endblock %}
+  </section>
+</section>
+
+</body>
+</html>
