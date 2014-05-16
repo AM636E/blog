@@ -9,12 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Post
 {
-
-    /**
-     * @var integer
-     */
-    private $basepid;
-
     /**
      * @var string
      */
@@ -42,37 +36,12 @@ class Post
 
 
     /**
-     * Set basepid
-     *
-     * @param integer $basepid
-     *
-     * @return Post
-     */
-    public function setBasepid ($basepid)
-    {
-        $this->basepid = $basepid;
-
-        return $this;
-    }
-
-    /**
-     * Get basepid
-     *
-     * @return integer
-     */
-    public function getBasepid ()
-    {
-        return $this->basepid;
-    }
-
-    /**
      * Set title
      *
      * @param string $title
-     *
      * @return Post
      */
-    public function setTitle ($title)
+    public function setTitle($title)
     {
         $this->title = $title;
 
@@ -84,7 +53,7 @@ class Post
      *
      * @return string
      */
-    public function getTitle ()
+    public function getTitle()
     {
         return $this->title;
     }
@@ -93,10 +62,9 @@ class Post
      * Set content
      *
      * @param string $content
-     *
      * @return Post
      */
-    public function setContent ($content)
+    public function setContent($content)
     {
         $this->content = $content;
 
@@ -108,7 +76,7 @@ class Post
      *
      * @return string
      */
-    public function getContent ()
+    public function getContent()
     {
         return $this->content;
     }
@@ -117,10 +85,9 @@ class Post
      * Set created
      *
      * @param integer $created
-     *
      * @return Post
      */
-    public function setCreated ($created)
+    public function setCreated($created)
     {
         $this->created = $created;
 
@@ -132,7 +99,7 @@ class Post
      *
      * @return integer
      */
-    public function getCreated ()
+    public function getCreated()
     {
         return $this->created;
     }
@@ -142,48 +109,31 @@ class Post
      *
      * @return integer
      */
-    public function getPid ()
+    public function getPid()
     {
         return $this->pid;
     }
 
     /**
-     * Set uid
+     * Set user
      *
-     * @param \Zaz\BlogBundle\Entity\User $uid
-     *
+     * @param \Zaz\BlogBundle\Entity\User $user
      * @return Post
      */
-    public function setUid (\Zaz\BlogBundle\Entity\User $uid = null)
+    public function setUser(\Zaz\BlogBundle\Entity\User $user = null)
     {
-        $this->uid = $uid;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get uid
+     * Get user
      *
      * @return \Zaz\BlogBundle\Entity\User
      */
-    public function getUid ()
-    {
-        return $this->uid;
-    }
-
-    /**
-     * @return \Zaz\BlogBundle\Entity\User
-     */
-    public function getUser ()
+    public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * @param \Zaz\BlogBundle\Entity\User $user
-     */
-    public function setUser ($user)
-    {
-        $this->user = $user;
     }
 }

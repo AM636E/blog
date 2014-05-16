@@ -1,1 +1,8 @@
-hello
+{% extends 'ZazBlogBundle::layout.html.twig' %}
+{% block header_logined %}
+  Create post.
+{% endblock %}
+
+{% block body %}
+  {{ form(form) }}
+{% endblock %}

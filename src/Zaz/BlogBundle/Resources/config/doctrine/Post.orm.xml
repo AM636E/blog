@@ -9,7 +9,7 @@
         <id name="pid" type="integer" column="pid">
             <generator strategy="IDENTITY"/>
         </id>
-        <field name="basepid" type="integer" column="basePid" nullable="false"/>
+
         <field name="title" type="string" column="title" length="256" nullable="false"/>
         <field name="content" type="text" column="content" nullable="false"/>
         <field name="created" type="integer" column="created" nullable="false"/>

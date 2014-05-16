@@ -10,12 +10,13 @@ namespace Zaz\BlogBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Zaz\BlogBundle\Entity\Post;
 
 class PostController extends Controller
 {
 
-    public function createAction ()
+    public function createAction (Request $request)
     {
         $post = new Post();
 
@@ -24,6 +25,21 @@ class PostController extends Controller
                      ->add('content', 'textarea')
                      ->add('save', 'submit')
                      ->getForm();
+
+        $form->handleRequest($request);
+
+        if ( $form->isValid() ) {
+            $user = $this->container->get('security.context')
+                                    ->getToken()
+                                    ->getUser();
+            $post->setCreated(time());
+            $post->setUser($user);
+            $em = $this->getDoctrine()
+                       ->getManager();
+
+            $em->persist($post);
+            $em->flush();
+        }
 
 
         return $this->render('ZazBlogBundle:Post:create.html.twig', array (
