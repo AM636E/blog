@@ -1,0 +1,10 @@
+{% extends 'ZazBlogBundle::layout.html.twig' %}
+{% block header_wrapper %}
+  <h1>
+    {{ post.title }}
+  </h1>
+{% endblock %}
+
+{% block body %}
+  {{ post.content }}
+{% endblock %}

@@ -57,6 +57,18 @@ class PostController extends Controller
             'form'   => $form->createView(),
             'status' => $status
         ));
-
     }
+
+    public function showAction ($pid)
+    {
+        $post = $this->getDoctrine()
+                     ->getRepository('ZazBlogBundle:Post')
+                     ->findOneBy(array ('id' => $pid));
+
+        return $this->render('ZazBlogBundle:Post:post.html.twig', array (
+            'post' => $post,
+        ));
+    }
+
+    public function
 } 

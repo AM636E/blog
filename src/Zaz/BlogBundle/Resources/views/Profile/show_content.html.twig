@@ -15,5 +15,22 @@
       </li>
     </ul>
   </div>
+  <div class="user user-posts panel panel-default">
+    <div class="panel-heading">
+      <h4 class="heading">Posts</h4>
+    </div>
+    <div class="panel-body">
+      <ul>
+        {% for post in posts %}
+          <li>
+            <a href="/post/{{ post.getId }}">
+              {{ post.title }}
+            </a>
+          </li>
+        {% else %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 {% endblock %}
 

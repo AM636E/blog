@@ -1,7 +1,12 @@
 zaz_blog_homepage:
-    pattern: /
+    pattern: /main
     defaults: { _controller: ZazBlogBundle:Default:index }
 
 zaz_blog_post_add:
     pattern: /post/add
     defaults: { _controller: ZazBlogBundle:Post:create }
+
+
+zaz_blog_post_show:
+    pattern: /post/{pid}
+    defaults: { _controller: ZazBlogBundle:Post:show }

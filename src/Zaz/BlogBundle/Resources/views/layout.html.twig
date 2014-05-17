@@ -24,23 +24,25 @@
 </header>
 
 <section class="container content-wrapper">
-  <section class="messages">
-    {% for type, messages in app.session.flashbag.all() %}
-      {% for message in messages %}
-        <div class="flash-{{ type }}">
-          {{ message }}
-        </div>
+  {% block content_wrapper %}
+    <section class="messages">
+      {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+          <div class="flash-{{ type }}">
+            {{ message }}
+          </div>
+        {% endfor %}
       {% endfor %}
-    {% endfor %}
-  </section>
-  <section class="content">
-    {% block fos_user_content %}
-    {% endblock fos_user_content %}
-  </section>
-  <section class="body">
-    {% block body %}
-    {% endblock %}
-  </section>
+    </section>
+    <section class="content">
+      {% block fos_user_content %}
+      {% endblock fos_user_content %}
+    </section>
+    <section class="body">
+      {% block body %}
+      {% endblock %}
+    </section>
+  {% endblock %}
 </section>
 
 </body>
