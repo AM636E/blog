@@ -46,6 +46,7 @@ class PostController extends Controller
                 $em->persist($post);
                 $em->flush();
 
+                return $this->redirect('/post/' . $post->getId());
             }
             catch (ContextErrorException $e) {
                 $status = "Failed to create post. <pre>" . print_r($e) . "</pre>";
@@ -70,5 +71,23 @@ class PostController extends Controller
         ));
     }
 
-    public function
-} 
+    public function editAction ($pid)
+    {
+        $post = $this->getDoctrine()
+                     ->getRepository('ZazBlogBundle:Post')
+                     ->findOneBy(array (
+                'id' => $pid
+            ));
+
+        $form = $this->createFormBuilder($post)
+                     ->add('title', 'text')
+                     ->add('content', 'textarea')
+                     ->add('save', 'submit')
+                     ->getForm();
+
+        return $this->render('ZazBlogBundle:Post:create.html.twig', array (
+            'form'   => $form->createView(),
+            'status' => '',
+        ));
+    }
+}

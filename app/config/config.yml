@@ -69,7 +69,7 @@ swiftmailer:
     spool:     { type: memory }
 
 #FOSUserBundle config
-fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: Zaz\BlogBundle\Entity\User
+#fos_user:
+#    db_driver: orm
+#    firewall_name: main
+#    user_class: Zaz\BlogBundle\Entity\User

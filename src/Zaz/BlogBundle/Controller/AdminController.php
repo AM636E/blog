@@ -19,4 +19,4 @@ class AdminController extends Controller
         return $this->render('ZazBlogBundle:Admin:index.html.twig');
     }
 
-} 
+}

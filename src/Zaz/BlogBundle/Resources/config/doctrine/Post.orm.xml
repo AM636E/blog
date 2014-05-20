@@ -3,13 +3,13 @@
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <entity name="Zaz\BlogBundle\Entity\Post" table="post">
-        <id name="id" type="integer" column="pid">
+        <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>
         <field name="title" type="string" column="title" length="256" nullable="false"/>
         <field name="content" type="text" column="content" nullable="false"/>
         <field name="created" type="integer" column="created" nullable="false"/>
-        <many-to-one field="user" target-entity="User">
+        <many-to-one field="user" target-entity="Zaz\BlogBundle\Entity\User">
             <join-columns>
                 <join-column name="uid" referenced-column-name="id" nullable="false"/>
             </join-columns>

@@ -1,5 +1,10 @@
 {% extends "ZazBlogBundle::layout.html.twig" %}
-
+{% block title %}
+  {{ user.username }}
+{% endblock %}
+{% block header_logined %}
+  {{ user.username }}'s Page
+{% endblock %}
 {% block fos_user_content %}
-{% include "ZazBlogBundle:Profile:show_content.html.twig" %}
+  {% include "ZazBlogBundle:Profile:show_content.html.twig" %}
 {% endblock fos_user_content %}

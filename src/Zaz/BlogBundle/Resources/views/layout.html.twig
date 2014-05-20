@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>{% block title %}Index{% endblock %} | Blog</title>
   <meta charset="UTF-8"/>
   {% stylesheets 'bundles/zazblog/bootstrap/css/bootstrap.css' %}
   <link rel="stylesheet" href="{{ asset_url }}"/>
@@ -8,9 +9,13 @@
 </head>
 <body class="container  ">
 <header class="container">
+  {% block user_menu %}
+    {% include 'ZazBlogBundle:Profile:menu.html.twig' %}
+  {% endblock %}
   <h4>
     {% block header_wrapper %}
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
         {% block header_logined %}
           Welcome, dear {{ app.user.username }}.
         {% endblock %}

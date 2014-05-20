@@ -3,11 +3,137 @@
 namespace Zaz\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  */
-class User extends BaseUser
+class User
 {
+    /**
+     * @var varchar
+     */
+    private $username;
+
+    /**
+     * @var varchar
+     */
+    private $email;
+
+    /**
+     * @var varchar
+     */
+    private $password;
+
+    /**
+     * @var varchar
+     */
+    private $salt;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Set username
+     *
+     * @param \varchar $username
+     * @return User
+     */
+    public function setUsername(\varchar $username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return \varchar 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set email
+     *
+     * @param \varchar $email
+     * @return User
+     */
+    public function setEmail(\varchar $email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return \varchar 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set password
+     *
+     * @param \varchar $password
+     * @return User
+     */
+    public function setPassword(\varchar $password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return \varchar 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param \varchar $salt
+     * @return User
+     */
+    public function setSalt(\varchar $salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return \varchar 
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }

@@ -6,9 +6,15 @@
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>
-        <field name="username" nullable="false" type="string"/>
-        <field name="email" type="string" nullable="false"/>
-        <field name="password" type="string" nullable="false"/>
-        <field name="salt" type="string" nullable="false"/>
+        <many-to-one field="user" target-entity="Zaz\BlogBundle\Entity\User">
+            <join-columns>
+                <join-column name="uid" referenced-column-name="id" nullable="false"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-one field="post" target-entity="Zaz\BlogBundle\Entity\post">
+            <join-columns>
+                <join-column name="pid" referenced-column-name="id" nullable="false"/>
+            </join-columns>
+        </many-to-one>
     </entity>
 </doctrine-mapping>

@@ -9,12 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Post
 {
-
-    /**
-     * @var string
-     */
-    private $uid;
-
     /**
      * @var string
      */
@@ -42,37 +36,12 @@ class Post
 
 
     /**
-     * Set uid
-     *
-     * @param string $uid
-     *
-     * @return Post
-     */
-    public function setUid ($uid)
-    {
-        $this->uid = $uid;
-
-        return $this;
-    }
-
-    /**
-     * Get uid
-     *
-     * @return string
-     */
-    public function getUid ()
-    {
-        return $this->uid;
-    }
-
-    /**
      * Set title
      *
      * @param string $title
-     *
      * @return Post
      */
-    public function setTitle ($title)
+    public function setTitle($title)
     {
         $this->title = $title;
 
@@ -82,9 +51,9 @@ class Post
     /**
      * Get title
      *
-     * @return string
+     * @return string 
      */
-    public function getTitle ()
+    public function getTitle()
     {
         return $this->title;
     }
@@ -93,10 +62,9 @@ class Post
      * Set content
      *
      * @param string $content
-     *
      * @return Post
      */
-    public function setContent ($content)
+    public function setContent($content)
     {
         $this->content = $content;
 
@@ -106,9 +74,9 @@ class Post
     /**
      * Get content
      *
-     * @return string
+     * @return string 
      */
-    public function getContent ()
+    public function getContent()
     {
         return $this->content;
     }
@@ -117,10 +85,9 @@ class Post
      * Set created
      *
      * @param integer $created
-     *
      * @return Post
      */
-    public function setCreated ($created)
+    public function setCreated($created)
     {
         $this->created = $created;
 
@@ -130,9 +97,9 @@ class Post
     /**
      * Get created
      *
-     * @return integer
+     * @return integer 
      */
-    public function getCreated ()
+    public function getCreated()
     {
         return $this->created;
     }
@@ -140,9 +107,9 @@ class Post
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
-    public function getId ()
+    public function getId()
     {
         return $this->id;
     }
@@ -151,10 +118,9 @@ class Post
      * Set user
      *
      * @param \Zaz\BlogBundle\Entity\User $user
-     *
      * @return Post
      */
-    public function setUser (\Zaz\BlogBundle\Entity\User $user)
+    public function setUser(\Zaz\BlogBundle\Entity\User $user)
     {
         $this->user = $user;
 
@@ -164,9 +130,9 @@ class Post
     /**
      * Get user
      *
-     * @return \Zaz\BlogBundle\Entity\User
+     * @return \Zaz\BlogBundle\Entity\User 
      */
-    public function getUser ()
+    public function getUser()
     {
         return $this->user;
     }

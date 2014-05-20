@@ -5,23 +5,24 @@
  * Date: 5/16/14
  * Time: 2:29 PM
  */
-
 namespace Zaz\BlogBundle\Controller;
 
-
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
-use FOS\UserBundle\Controller\SecurityController as BaseController;
 use Zaz\BlogBundle\Entity\User;
 
-
-class SecurityController extends BaseController
+class SecurityController extends Controller
 {
 
     public function loginAction (Request $request)
     {
-        return parent::loginAction($request);
 
     }
-} 
+
+    public function registerAction (Request $request)
+    {
+        
+    }
+}
