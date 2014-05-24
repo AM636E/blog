@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: zaz
@@ -8,43 +9,30 @@
 
 namespace Zaz\BlogBundle\Controller;
 
-
+use \Zaz\BlogBundle\Utility\UserUtility;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use FOS\UserBundle\Controller\ProfileController as BaseController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Zaz\BlogBundle\Entity\User;
 
-class ProfileController extends BaseController
+class ProfileController extends Controller
 {
 
-    public function showAction ($uid = null)
+    public function showAction($uid = null, Request $request)
     {
+        UserUtility::setRegistry($this->getDoctrine());
         /** @var $user User */
-        if ( $uid === null ) {
-            $user = $this->container->get('security.context')
-                                    ->getToken()
-                                    ->getUser();
-        }
-        else {
-            $user = $this->container->get('doctrine')
-                                    ->getRepository('ZazBlogBundle:User')
-                                    ->findOneBy(array (
-                    'id' => $uid
-                ));
-        }
+        $user = UserUtility::getUser(array('salt' => $request->getSession()->get('user_tok')));
 
-        if ( !is_object($user) || !$user instanceof User ) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }
+        $posts = $this->getDoctrine()->getRepository('ZazBlogBundle:Post')
+          ->findBy(array(
+          'user' => $user
+        ));
 
-        $posts = $this->container->get('doctrine')
-                                 ->getRepository('ZazBlogBundle:Post')
-                                 ->findBy(array ('user' => $user));
-
-        return $this->container->get('templating')
-                               ->renderResponse('ZazBlogBundle:Profile:show.html.twig', array (
-                'user'  => $user,
-                'posts' => $posts
-            ));
+        return $this->render('ZazBlogBundle:Profile:profile.html.twig', array(
+            'user' => $user,
+            'posts' => $posts
+        ));
     }
+
 }

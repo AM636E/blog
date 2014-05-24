@@ -11,9 +11,14 @@
                 <join-column name="uid" referenced-column-name="id" nullable="false"/>
             </join-columns>
         </many-to-one>
-        <many-to-one field="post" target-entity="Zaz\BlogBundle\Entity\post">
+        <many-to-one field="post" target-entity="Zaz\BlogBundle\Entity\Post">
             <join-columns>
                 <join-column name="pid" referenced-column-name="id" nullable="false"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-one target-entity="Zaz\BlogBundle\Entity\Post" field="content">
+            <join-columns>
+                <join-column name="content" referenced-column-name="id" nullable="false"/>
             </join-columns>
         </many-to-one>
     </entity>

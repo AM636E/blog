@@ -30,10 +30,22 @@ class Post
     private $id;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $comments;
+
+    /**
      * @var \Zaz\BlogBundle\Entity\User
      */
     private $user;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Set title
@@ -112,6 +124,39 @@ class Post
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Zaz\BlogBundle\Entity\Comment $comments
+     * @return Post
+     */
+    public function addComment(\Zaz\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Zaz\BlogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Zaz\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 
     /**

@@ -1,0 +1,47 @@
+{% extends "ZazBlogBundle::layout.html.twig" %}
+{% block title %}
+    {{ user.getUsername() }}
+{% endblock %}
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading username">
+            <h4 class="heading">
+                {{ user.getUsername() }}
+            </h4>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+
+                </thead>
+                <tbody>
+
+                {% for post in posts %}
+                    <tr>
+                        <td>
+                            <div class="post-title">
+                                <a href="/post/{{ post.getId() }}"> {{ post.getTitle() }}   </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="post-delete">
+                                <a href="/post/{{ post.getId() }}/delete">Delete</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="post-edit">
+                                <a href="/post/{{ post.getId() }}/edit">Edit</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,7 +1,21 @@
 {% extends "ZazBlogBundle::layout.html.twig" %}
-{% block title %}
-  Register
+{% block stylesheets %}
+    {% stylesheets
+    'bundles/zazblog/css/form.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
 {% endblock %}
-{% block fos_user_content %}
-  {% include "ZazBlogBundle:Registration:register_content.html.twig" %}
-{% endblock fos_user_content %}
+
+{% block title %}
+    Register
+{% endblock %}
+{% block body %}
+
+    {% if error %}
+        <div class="error bs-callout bs-callout-danger">
+            {{ error }}
+        </div>
+    {% endif %}
+    {% form_theme form with ['ZazBlogBundle:Form:bootstrap-form.html.twig'] %}
+    {{ form(form) }}
+{% endblock body %}

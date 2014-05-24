@@ -10,5 +10,9 @@
         <field name="email" type="string" nullable="false"/>
         <field name="password" type="string" nullable="false"/>
         <field name="salt" type="string" nullable="false"/>
+
+        <one-to-many target-entity="Zaz\BlogBundle\Entity\Post" mapped-by="post" field="posts"/>
+        <one-to-many target-entity="Zaz\BlogBundle\Entity\Comment" mapped-by="comment" field="comments"/>
+
     </entity>
 </doctrine-mapping>

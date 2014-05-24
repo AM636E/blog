@@ -34,6 +34,24 @@ class User
      */
     private $id;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $posts;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $comments;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Set username
@@ -135,5 +153,71 @@ class User
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add posts
+     *
+     * @param \Zaz\BlogBundle\Entity\Post $posts
+     * @return User
+     */
+    public function addPost(\Zaz\BlogBundle\Entity\Post $posts)
+    {
+        $this->posts[] = $posts;
+
+        return $this;
+    }
+
+    /**
+     * Remove posts
+     *
+     * @param \Zaz\BlogBundle\Entity\Post $posts
+     */
+    public function removePost(\Zaz\BlogBundle\Entity\Post $posts)
+    {
+        $this->posts->removeElement($posts);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Zaz\BlogBundle\Entity\Comment $comments
+     * @return User
+     */
+    public function addComment(\Zaz\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Zaz\BlogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Zaz\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

@@ -20,9 +20,14 @@ class Comment
     private $user;
 
     /**
-     * @var \Zaz\BlogBundle\Entity\post
+     * @var \Zaz\BlogBundle\Entity\Post
      */
     private $post;
+
+    /**
+     * @var \Zaz\BlogBundle\Entity\Post
+     */
+    private $content;
 
 
     /**
@@ -61,10 +66,10 @@ class Comment
     /**
      * Set post
      *
-     * @param \Zaz\BlogBundle\Entity\post $post
+     * @param \Zaz\BlogBundle\Entity\Post $post
      * @return Comment
      */
-    public function setPost(\Zaz\BlogBundle\Entity\post $post)
+    public function setPost(\Zaz\BlogBundle\Entity\Post $post)
     {
         $this->post = $post;
 
@@ -74,10 +79,33 @@ class Comment
     /**
      * Get post
      *
-     * @return \Zaz\BlogBundle\Entity\post 
+     * @return \Zaz\BlogBundle\Entity\Post 
      */
     public function getPost()
     {
         return $this->post;
+    }
+
+    /**
+     * Set content
+     *
+     * @param \Zaz\BlogBundle\Entity\Post $content
+     * @return Comment
+     */
+    public function setContent(\Zaz\BlogBundle\Entity\Post $content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return \Zaz\BlogBundle\Entity\Post 
+     */
+    public function getContent()
+    {
+        return $this->content;
     }
 }

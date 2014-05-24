@@ -9,10 +9,13 @@
         <field name="title" type="string" column="title" length="256" nullable="false"/>
         <field name="content" type="text" column="content" nullable="false"/>
         <field name="created" type="integer" column="created" nullable="false"/>
-        <many-to-one field="user" target-entity="Zaz\BlogBundle\Entity\User">
+
+        <one-to-many target-entity="Zaz\BlogBundle\Entity\Comment" mapped-by="comment" field="comments"/>
+        <many-to-one field="user" target-entity="Zaz\BlogBundle\Entity\User" inversed-by="posts">
             <join-columns>
                 <join-column name="uid" referenced-column-name="id" nullable="false"/>
             </join-columns>
         </many-to-one>
+
     </entity>
 </doctrine-mapping>

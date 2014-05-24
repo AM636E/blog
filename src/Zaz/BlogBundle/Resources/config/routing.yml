@@ -2,13 +2,25 @@ zaz_blog_homepage:
     pattern: /
     defaults: { _controller: ZazBlogBundle:Default:index }
 
+zaz_blog_user:
+    pattern: /user
+    defaults: { _controller: ZazBlogBundle:Security:user }
+
+zaz_blog_user_profile:
+    pattern: /user/show/{uid}
+    defaults: { _controller: ZazBlogBundle:Profile:show }
+
 zaz_blog_login:
-    pattern: /login
+    pattern: /user/login
     defaults: {  _controller: ZazBlogBundle:Security:login }
 
 zaz_blog_register:
-    pattern: /register
-    defautls: { _controller: ZazBlogBundle:Secutiry:register }
+    pattern: /user/register
+    defaults: { _controller: ZazBlogBundle:Security:register }
+
+zaz_blog_logout:
+    pattern: /user/logout
+    defaults: { _controller: ZazBlogBundle:Security:logout }
 
 zaz_blog_post_add:
     pattern: /post/add
@@ -22,8 +34,15 @@ zaz_blog_post_edit:
     pattern: /post/{pid}/edit
     defaults: { _controller: ZazBlogBundle:Post:edit }
 
-zaz_blog_user_show:
-    pattern: /user/{uid}
-    defaults: { _controller: ZazBlogBundle:Profile:show }
+zaz_blog_post_delete:
+    pattern: /post/{pid}/delete
+    defaults: { _controller: ZazBlogBundle:Post:delete }
 
+zaz_blog_post_edit:
+    pattern: /post/{pid}/edit
+    defaults: { _controller: ZazBlogBundle:Post:edit }
+    
+zaz_blog_post_comment:
+    pattern: /post/{pid}/comment
+    defaults: { _controller: ZazBlogBundle:Post:comment }
 

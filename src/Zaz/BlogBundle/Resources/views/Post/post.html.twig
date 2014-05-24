@@ -1,10 +1,61 @@
 {% extends 'ZazBlogBundle::layout.html.twig' %}
+{% block title %}
+  {{ post.title }}
+{%endblock title %}
 {% block header_wrapper %}
-  <h1>
-    {{ post.title }}
-  </h1>
+
 {% endblock %}
 
 {% block body %}
-  {{ post.content }}
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+      <h4 class="heading">
+        {{ post.title }}
+      </h4>
+    </div>
+
+    <div class="post-content panel-body">
+      {{ post.content }}
+    </div>
+    {% if user.id == post.user.id %}
+      <div class="admin-links">
+        <a href="/post/{{ post.id }}/edit" class="btn btn-default">Edit</a>
+        <a href="/post/{{ post.id }}/delete" class="btn btn-danger">Delete</a>
+      </div>
+    {% endif %}
+  </div>
 {% endblock %}
+
+{%block bottom_authenticated %}
+  <div class="comment-wrapper">
+    <h4 class="heading">Comments</h4>
+    <div class="add-comment">
+      <h5 class="heading">Add Comment</h5>
+      <div class="form-wrapper">
+        {% form_theme comment_form 'ZazBlogBundle:Form:bootstrap-form.html.twig' %}
+        {{ form(comment_form) }}
+      </div>
+    </div>
+    <div class="post-comments">
+      {% for comment in comments%}
+        <div class="panel panel-default">
+          <div class="post post-title panel-heading">
+            <a href="/post/{{ comment.getContent().getId }}">
+              {{ comment.getContent().title }}
+            </a>
+          </div>
+          <div class="post-wrapper panel-body">
+            <div class="post post-content">
+              {{ comment.getContent().content }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{%endblock bottom_authenticated%}
+
+{%block bottom_anonimous %}
+  Login to post comments
+{%endblock bottom_anonimous%}
