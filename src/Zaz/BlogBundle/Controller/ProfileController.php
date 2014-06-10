@@ -23,7 +23,6 @@ class ProfileController extends Controller
         UserUtility::setRegistry($this->getDoctrine());
         /** @var $user User */
         $user = UserUtility::getUser(array('salt' => $request->getSession()->get('user_tok')));
-
         $posts = $this->getDoctrine()->getRepository('ZazBlogBundle:Post')
           ->findBy(array(
           'user' => $user
